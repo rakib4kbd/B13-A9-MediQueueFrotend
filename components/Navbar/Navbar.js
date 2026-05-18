@@ -2,8 +2,10 @@ import React from "react";
 import ThemeToggler from "./ThemeToggler/ThemeToggler";
 import { User } from "lucide-react";
 import Link from "next/link";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
-const Navbar = () => {
+const Navbar = async () => {
   const regularLinks = [
     { label: "Home", navigation: "/" },
     { label: "Tutors", navigation: "/tutors" },
@@ -13,7 +15,10 @@ const Navbar = () => {
     { label: "My Tutors", navigation: "/my-tutors" },
   ];
 
-  const isLoggedIn = true;
+  const session = await auth.api.getSession({
+    headers: await headers(), // you need to pass the headers object.
+  });
+  const user = session?.user;
   return (
     <div className="max-lg:collapse bg-base-200 lg:mb-48 shadow-sm w-full rounded-md">
       <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
@@ -54,7 +59,7 @@ const Navbar = () => {
               </li>
             ))}
 
-            {isLoggedIn &&
+            {user &&
               loggedInLinks.map((link) => (
                 <li key={link.label}>
                   <Link href={link.navigation}>{link.label}</Link>
@@ -67,14 +72,14 @@ const Navbar = () => {
             <li>
               <ThemeToggler />
             </li>
-            {!isLoggedIn && (
+            {!user && (
               <li>
                 <Link href={"/login"} className="btn btn-primary">
                   Log In
                 </Link>
               </li>
             )}
-            {isLoggedIn && (
+            {user && (
               <li>
                 <div className="dropdown dropdown-hover dropdown-end">
                   <div tabIndex={0} role="button">
@@ -110,7 +115,7 @@ const Navbar = () => {
             </li>
           ))}
 
-          {isLoggedIn &&
+          {user &&
             loggedInLinks.map((link) => (
               <li key={link.label}>
                 <Link href={link.navigation}>{link.label}</Link>
