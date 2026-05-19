@@ -47,7 +47,7 @@ const RegisterForm = ({ searchParams }) => {
           }}
         >
           <Image
-            src={"/assets/google.png"}
+            src={"/logos/google.png"}
             alt="google"
             width={20}
             height={20}

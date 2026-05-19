@@ -1,26 +1,26 @@
+"use client";
 import React from "react";
 import ThemeToggler from "./ThemeToggler/ThemeToggler";
 import { User } from "lucide-react";
 import Link from "next/link";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
+import LogOutButton from "./LogOutButton/LogOutButton";
+import { useSession } from "@/lib/auth-client";
 
-const Navbar = async () => {
+const Navbar = () => {
   const regularLinks = [
     { label: "Home", navigation: "/" },
     { label: "Tutors", navigation: "/tutors" },
   ];
   const loggedInLinks = [
     { label: "Add Tutor", navigation: "/add-tutor" },
-    { label: "My Tutors", navigation: "/my-tutors" },
+    { label: "My Tutors", navigation: "/tutors" },
+    { label: "My Booked Sessions", navigation: "/booked-session" },
   ];
 
-  const session = await auth.api.getSession({
-    headers: await headers(), // you need to pass the headers object.
-  });
-  const user = session?.user;
+  const { data } = useSession();
+  const user = data?.user;
   return (
-    <div className="max-lg:collapse bg-base-200 lg:mb-48 shadow-sm w-full rounded-md">
+    <div className="max-lg:collapse bg-base-200 shadow-sm w-full border-b border-b/10 rounded-none">
       <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
       <label
         htmlFor="navbar-1-toggle"
@@ -95,9 +95,7 @@ const Navbar = async () => {
                       </Link>
                     </li>
                     <li>
-                      <Link href={"/logout"} className="btn btn-error">
-                        Log Out
-                      </Link>
+                      <LogOutButton />
                     </li>
                   </ul>
                 </div>

@@ -13,11 +13,12 @@ const LoginForm = ({ searchParams }) => {
 
   const [passVis, setPassVis] = useState(false);
   const { register, handleSubmit } = useForm();
-  const onSubmit = async (formData) => {
+  const onSubmit = (formData) => {
     const { email, password } = formData;
-    const { data, error } = await signIn.email({
+    const { data, error } = signIn.email({
       email: email,
       password: password,
+      callbackURL: "/",
       //   callbackURL: params["callbackUrl"] || "/",
     });
     if (error) {
@@ -32,7 +33,7 @@ const LoginForm = ({ searchParams }) => {
           handleGoogleLogin();
         }}
       >
-        <Image src={"/assets/google.png"} alt="google" width={20} height={20} />{" "}
+        <Image src={"/logos/google.png"} alt="google" width={20} height={20} />{" "}
         <span>Login with Google</span>
       </button>
       <div className="divider"> Or </div>
