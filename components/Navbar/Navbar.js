@@ -13,8 +13,8 @@ const Navbar = () => {
   ];
   const loggedInLinks = [
     { label: "Add Tutor", navigation: "/add-tutor" },
-    { label: "My Tutors", navigation: "/tutors" },
-    { label: "My Booked Sessions", navigation: "/booked-session" },
+    { label: "My Tutors", navigation: "/tutors/my-tutors" },
+    { label: "My Booked Sessions", navigation: "/booking" },
   ];
 
   const { data } = useSession();

@@ -16,13 +16,13 @@ const KeyMetrics = () => {
     },
   ];
   return (
-    <div className="bg-base-100 my-20">
+    <div className="bg-base-100 py-10">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-5">
         <h1 className="text-3xl font-bold col-span-4 items-center">
           Why Choose Us
         </h1>
 
-        <div className="col-span-2 grid grid-cols-4">
+        <div className="col-span-2 grid grid-cols-2 gap-5 items-center justify-center">
           {keyMetrics.map((metric, index) => (
             <div
               key={index}
@@ -36,11 +36,10 @@ const KeyMetrics = () => {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-center ">
+        <div className="flex items-center justify-center col-span-2">
           <div className="flex flex-col bg-primary p-10 rounded-lg text-white">
             <Quote />
-
-            <p className="text-lg italic">{quote[0].text}</p>
+            <p className="text-lg italic my-5">&quot;{quote[0].text}&quot;</p>
             <p className="text-md font-bold">{quote[0].author}</p>
             <p className="text-sm">{quote[0].status}</p>
           </div>

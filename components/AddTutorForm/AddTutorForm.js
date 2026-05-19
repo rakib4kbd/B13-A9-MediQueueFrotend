@@ -1,9 +1,14 @@
 "use client";
 
+import { useSession } from "@/lib/auth-client";
 import React from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const AddTutorForm = () => {
+  const { data } = useSession();
+  const user = data?.user;
+  console.log(user);
   const { register, handleSubmit } = useForm();
 
   const subjects = [
@@ -15,26 +20,11 @@ const AddTutorForm = () => {
     "ICT",
   ];
 
-  const days = ["sat", "sun", "mon", "tue", "wed", "thu", "fri"];
-
-  const onSubmit = (data) => {
-    const availability = days
-      .filter((day) => data[`${day}_enabled`])
-      .map((day) => ({
-        [day]: [
-          {
-            start: Number(data[`${day}_start`]),
-            end: Number(data[`${day}_end`]),
-          },
-        ],
-      }));
-
+  const onSubmit = async (data) => {
     const tutorData = {
       tutorName: data.tutorName,
       photo: data.photo,
       subject: data.subject,
-
-      availability: availability,
 
       hourlyFee: Number(data.hourlyFee),
       totalSlot: Number(data.totalSlot),
@@ -51,9 +41,26 @@ const AddTutorForm = () => {
         city: data.city,
         teachingMode: data.teachingMode,
       },
+      addedBy: {
+        userId: user?.id,
+        email: user?.email,
+        name: user?.name,
+      },
     };
 
-    console.log(tutorData);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tutor`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(tutorData),
+    });
+    const result = await res.json();
+    if (result.acknowledged) {
+      toast.success("Tutor added successfully");
+    } else {
+      toast.error("Failed to add tutor");
+    }
   };
 
   return (
@@ -92,8 +99,6 @@ const AddTutorForm = () => {
             ))}
           </select>
 
-          <label className="label mt-4 font-bold">Availability</label>
-
           <div className="grid grid-cols-2 gap-3 mt-4">
             <div>
               <label className="label">Available Days</label>
@@ -110,7 +115,7 @@ const AddTutorForm = () => {
               <label className="label">Time Slot</label>
 
               <input
-                type="number"
+                type="text"
                 className="input w-full"
                 placeholder="10AM - 8 PM"
                 {...register("availability.time")}

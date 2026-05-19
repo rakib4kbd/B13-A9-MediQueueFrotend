@@ -1,5 +1,12 @@
+import BookSessionButton from "@/components/TutorDetail/BookSessionButton";
+import { auth } from "@/lib/auth";
+import { getSession } from "@/lib/auth-client";
 import { MapPin } from "lucide-react";
 import { UniversityIcon } from "lucide-react";
+import { DoorOpen } from "lucide-react";
+import { Lock } from "lucide-react";
+import { LockOpen } from "lucide-react";
+import { Clock } from "lucide-react";
 import { BriefcaseBusinessIcon } from "lucide-react";
 import { CircleAlertIcon } from "lucide-react";
 import { ArrowLeftIcon } from "lucide-react";
@@ -9,8 +16,9 @@ import React from "react";
 
 const TutorDetailPage = async ({ params }) => {
   const { id } = await params;
-  const res = await fetch(`${process.env.BACKEND_URL}/tutor/${id}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tutor/${id}`);
   const tutor = await res.json();
+  console.log(tutor);
   return (
     <div className="bg-base-200">
       <div className="container mx-auto py-5">
@@ -18,7 +26,7 @@ const TutorDetailPage = async ({ params }) => {
           <ArrowLeftIcon /> Back to Tutor Listing
         </Link>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-4 py-5">
           <div className="col-span-2 flex flex-row p-4 border border-primary/20 rounded-lg bg-base-100 gap-4">
             <div className="flex items-center justify-center">
               <figure className="relative aspect-square w-40">
@@ -59,27 +67,40 @@ const TutorDetailPage = async ({ params }) => {
               <p className="text-sm">Hourly Rate</p>
               <p className="text-lg font-semibold">${tutor.hourlyFee}</p>
             </div>
-            <div className="bg-base-100">
+            <div className="bg-base-100 rounded-lg">
               <div className="bg-base-100 grid grid-cols-2">
-                <div className="bg-base-200 mx-2 my-4 p-4 rounded-lg flex flex-col items-center justify-center text-center">
-                  <p className="uppercase">Available Days</p>
+                <div className="bg-base-200 mx-2 my-4 p-4 rounded-lg flex flex-col items-center justify-center text-center ">
+                  <p className="uppercase text-sm">Available Days</p>
                   <p>Sun - Thu</p>
                 </div>
                 <div className="bg-base-200 mx-2 my-4 rounded-lg flex flex-col items-center justify-center text-center">
-                  <p className="uppercase">Time Slot</p>
+                  <p className="uppercase text-sm">Time Slot</p>
                   <p>5:00 PM - 9:00 PM</p>
                 </div>
               </div>
               <div className="bg-base-100">
-                <div className="flex items-center justify-center gap-2 p-2 bg-warning m-2 rounded-lg text-sm">
-                  <CircleAlertIcon /> {tutor.totalSlot} Slots Remaining
-                  <span className="text-error">High Demand</span>
-                </div>
+                {tutor.totalSlot > 0 ? (
+                  <div className="flex items-center justify-center gap-2 p-2 bg-warning m-2 rounded-lg text-sm">
+                    <CircleAlertIcon /> {tutor.totalSlot} Slots Remaining
+                    <span className="text-error">High Demand</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center gap-2 p-2 bg-error m-2 rounded-lg text-sm">
+                    <CircleAlertIcon /> No Slots Available
+                  </div>
+                )}
+                {new Date(tutor.sessionStartDate) < new Date() ? (
+                  <div className="flex items-center justify-center gap-2 p-2 bg-success m-2 rounded-lg text-sm">
+                    <LockOpen /> Booking is open for this tutor
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center gap-2 p-2 bg-info m-2 rounded-lg text-sm">
+                    <Lock /> Booking is not available yet for this tutor
+                  </div>
+                )}
               </div>
-              <div className="flex items-center justify-center m-2">
-                <button className="btn btn-primary btn-block">
-                  Book Session
-                </button>
+              <div className="flex items-center justify-center m-2 ">
+                <BookSessionButton tutor={tutor} />
               </div>
             </div>
           </div>

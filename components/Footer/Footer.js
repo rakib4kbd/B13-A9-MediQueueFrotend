@@ -1,8 +1,6 @@
-import React from "react";
-
 const Footer = () => {
   return (
-    <div className="flex gap-5 bg-base-300 my-10 p-10 justify-between">
+    <div className="flex gap-5 bg-base-300 p-10 justify-between">
       <div className="flex flex-col gap-5">
         <p className="text-xl font-semibold text-primary/75">MediQueue</p>
         <p className="text-sm text-muted-foreground w-md">
