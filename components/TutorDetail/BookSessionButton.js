@@ -147,7 +147,6 @@ const BookSessionButton = ({ tutor }) => {
                     {...register("tutorName")}
                   />
 
-                  {/* Student Email */}
                   <label className="label mt-2">Student Email</label>
                   <input
                     type="email"

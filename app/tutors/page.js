@@ -1,12 +1,23 @@
-import fetchTutors from "@/lib/fetchTutors";
+"use client";
+import SearchTutor from "@/components/SearchTutors/SearchTutors";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const TutorsPage = async () => {
-  const tutors = await fetchTutors({ limit: "" });
-  console.log(tutors);
+const TutorsPage = () => {
+  const [tutors, setTutors] = useState([]);
+
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tutors`)
+      .then((res) => res.json())
+      .then((data) => setTutors(data));
+  }, []);
+
   return (
-    <div className="container mx-auto my-20 px-2 md:px-0">
+    <div className="container mx-auto my-10 px-2 md:px-0">
+      <div>
+        <SearchTutor setTutors={setTutors} />
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-4 my-3">
         {tutors.map((tutor, idx) => (
           <div

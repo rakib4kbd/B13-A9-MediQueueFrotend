@@ -1,11 +1,12 @@
 import Link from "next/link";
-import fetchTutors from "@/lib/fetchTutors";
 import Image from "next/image";
 import { ArrowRightIcon } from "lucide-react";
 
 const AvailableTutors = async () => {
-  const tutors = await fetchTutors({ limit: 6 });
-  console.log(tutors);
+  const tutors = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/tutors?limit=6`,
+  ).then((res) => res.json());
+
   return (
     <div className="container mx-auto my-20 px-2 md:px-0">
       <div className="flex items-center justify-between my-5">

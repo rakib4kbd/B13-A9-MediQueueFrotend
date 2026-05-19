@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 const AddTutorForm = () => {
   const { data } = useSession();
   const user = data?.user;
-  console.log(user);
   const { register, handleSubmit } = useForm();
 
   const subjects = [
@@ -59,7 +58,7 @@ const AddTutorForm = () => {
     if (result.acknowledged) {
       toast.success("Tutor added successfully");
     } else {
-      toast.error("Failed to add tutor");
+      toast.error(data.message || "Failed to add tutor");
     }
   };
 
@@ -117,7 +116,7 @@ const AddTutorForm = () => {
               <input
                 type="text"
                 className="input w-full"
-                placeholder="10AM - 8 PM"
+                placeholder="10AM - 8PM"
                 {...register("availability.time")}
               />
             </div>
@@ -129,9 +128,13 @@ const AddTutorForm = () => {
 
               <input
                 type="number"
+                min={0}
                 className="input w-full"
                 placeholder="500"
-                {...register("hourlyFee")}
+                {...register("hourlyFee", {
+                  required: true,
+                  valueAsNumber: true,
+                })}
               />
             </div>
 
@@ -140,6 +143,7 @@ const AddTutorForm = () => {
 
               <input
                 type="number"
+                min={0}
                 className="input w-full"
                 placeholder="10"
                 {...register("totalSlot")}
