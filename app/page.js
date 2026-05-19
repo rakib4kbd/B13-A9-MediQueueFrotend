@@ -7,12 +7,10 @@ import KeyMetrics from "@/components/HomeSections/KeyMetrics/KeyMetrics";
 export default function Home() {
   return (
     <div className="bg-base-200">
-      <div className="container mx-auto">
-        <BannerSection />
-        <HowItWorkSection />
-        <AvailableTutors />
-        <KeyMetrics />
-      </div>
+      <BannerSection />
+      <HowItWorkSection />
+      <AvailableTutors />
+      <KeyMetrics />
     </div>
   );
 }
