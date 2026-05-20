@@ -4,12 +4,16 @@ import BannerSection from "@/components/HomeSections/BannerSection";
 import HowItWorkSection from "@/components/HomeSections/HowItWorkSection/HowItWorkSection";
 import KeyMetrics from "@/components/HomeSections/KeyMetrics/KeyMetrics";
 
+export const metadata = {
+  title: "Home",
+};
+
 export default function Home() {
   return (
     <div className="bg-base-200">
       <BannerSection />
-      <HowItWorkSection />
       <AvailableTutors />
+      <HowItWorkSection />
       <KeyMetrics />
     </div>
   );

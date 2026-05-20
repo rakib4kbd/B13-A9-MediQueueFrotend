@@ -18,7 +18,7 @@ const KeyMetrics = () => {
   return (
     <div className="bg-base-100 py-10">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-5">
-        <h1 className="text-3xl font-bold col-span-4 items-center">
+        <h1 className="text-3xl font-semibold col-span-4 items-center text-center">
           Why Choose Us
         </h1>
 

@@ -2,6 +2,10 @@ import CancelBookingButton from "@/components/Booking/CancelBookingButton";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 
+export const metadata = {
+  title: "My Bookings",
+};
+
 const BookedSessionPage = async () => {
   const { user } = await auth.api.getSession({ headers: await headers() });
   const { token } = await auth.api.getToken({ headers: await headers() });

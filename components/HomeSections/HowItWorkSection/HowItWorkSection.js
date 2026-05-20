@@ -32,7 +32,7 @@ const HowItWorkSection = () => {
     <div className="my-10">
       <div className="container mx-auto">
         <div className="my-10">
-          <h2 className="text-3xl font-bold text-center">How It Works</h2>
+          <h2 className="text-3xl font-semibold text-center">How It Works</h2>
           <p className="text-neutral text-center">
             Getting started with our platform is simple and straightforward.
           </p>

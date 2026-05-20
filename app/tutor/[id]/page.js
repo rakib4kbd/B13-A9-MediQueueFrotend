@@ -13,6 +13,33 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+export const generateMetadata = async ({ params }) => {
+  const { id } = await params;
+  const { token } = await auth.api.getToken({ headers: await headers() });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/tutor/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    },
+  );
+  const tutor = await res.json();
+
+  if (!tutor) {
+    return {
+      title: "Tutor Not Found",
+      description: "This tutor does not exist",
+    };
+  }
+
+  return {
+    title: `${tutor.tutorName} | ${tutor.subject}`,
+  };
+};
+
 const TutorDetailPage = async ({ params }) => {
   const { id } = await params;
   const { token } = await auth.api.getToken({ headers: await headers() });

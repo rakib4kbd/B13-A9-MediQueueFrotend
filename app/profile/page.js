@@ -11,14 +11,13 @@ export const generateMetadata = async () => {
 
   if (!user) {
     return {
-      title: "Product Not Found",
-      description: "This product does not exist",
+      title: "User Not Found",
+      description: "This user does not exist",
     };
   }
 
   return {
-    title: `${user.name} @ Sun Cart`,
-    description: user.description || "Profile details page",
+    title: `${user.name}`,
   };
 };
 

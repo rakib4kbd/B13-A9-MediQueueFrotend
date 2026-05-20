@@ -4,6 +4,10 @@ import { User } from "lucide-react";
 import { headers } from "next/headers";
 import Image from "next/image";
 
+export const metadata = {
+  title: "My Tutors",
+};
+
 const MyTutorPage = async () => {
   const { user } = await auth.api.getSession({ headers: await headers() });
   const { token } = await auth.api.getToken({ headers: await headers() });
