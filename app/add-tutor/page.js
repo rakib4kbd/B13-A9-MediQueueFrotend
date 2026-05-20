@@ -1,10 +1,12 @@
 import AddTutorForm from "@/components/AddTutorForm/AddTutorForm";
-import React from "react";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
-const AddTutorPage = () => {
+const AddTutorPage = async () => {
+  const { token } = await auth.api.getToken({ headers: await headers() });
   return (
     <div className="container mx-auto">
-      <AddTutorForm />
+      <AddTutorForm token={token} />
     </div>
   );
 };

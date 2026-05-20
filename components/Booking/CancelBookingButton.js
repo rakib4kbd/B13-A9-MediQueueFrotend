@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 
-const CancelBookingButton = ({ session }) => {
+const CancelBookingButton = ({ session, token }) => {
   const router = useRouter();
   return (
     <>
@@ -50,6 +50,7 @@ const CancelBookingButton = ({ session }) => {
                     cache: "no-store",
                     headers: {
                       "Content-Type": "application/json",
+                      authorization: `Bearer ${token}`,
                     },
                     body: JSON.stringify({ status: "cancelled" }),
                   },

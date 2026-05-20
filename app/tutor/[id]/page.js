@@ -1,22 +1,31 @@
+import BookingInfo from "@/components/Booking/BookingInfo";
 import BookSessionButton from "@/components/TutorDetail/BookSessionButton";
 import { auth } from "@/lib/auth";
-import { getSession } from "@/lib/auth-client";
 import { MapPin } from "lucide-react";
 import { UniversityIcon } from "lucide-react";
-import { DoorOpen } from "lucide-react";
 import { Lock } from "lucide-react";
 import { LockOpen } from "lucide-react";
-import { Clock } from "lucide-react";
 import { BriefcaseBusinessIcon } from "lucide-react";
 import { CircleAlertIcon } from "lucide-react";
 import { ArrowLeftIcon } from "lucide-react";
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const TutorDetailPage = async ({ params }) => {
   const { id } = await params;
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tutor/${id}`);
+  const { token } = await auth.api.getToken({ headers: await headers() });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/tutor/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    },
+  );
   const tutor = await res.json();
   return (
     <div className="bg-base-200">
@@ -46,18 +55,18 @@ const TutorDetailPage = async ({ params }) => {
               <p className="text-primary/75">Specialist in {tutor.subject}</p>
               <p className="flex items-center gap-1">
                 <BriefcaseBusinessIcon width={18} />
-                {tutor.institution.experience}
+                {tutor?.institution?.experience}
               </p>
               <p className="flex items-center gap-1">
                 <UniversityIcon width={18} />
-                {tutor.institution.name}
+                {tutor?.institution?.name}
               </p>
               <p className="flex items-center gap-1">
                 <MapPin width={18} />
-                {tutor.location.area},{tutor.location.city}
+                {tutor?.location?.area},{tutor?.location?.city}
               </p>
               <p className="badge badge-info rounded-lg">
-                {tutor.location.teachingMode}
+                {tutor?.location?.teachingMode}
               </p>
             </div>
           </div>
@@ -77,27 +86,7 @@ const TutorDetailPage = async ({ params }) => {
                   <p>5:00 PM - 9:00 PM</p>
                 </div>
               </div>
-              <div className="bg-base-100">
-                {tutor.totalSlot > 0 ? (
-                  <div className="flex items-center justify-center gap-2 p-2 bg-warning m-2 rounded-lg text-sm">
-                    <CircleAlertIcon /> {tutor.totalSlot} Slots Remaining
-                    <span className="text-error">High Demand</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center gap-2 p-2 bg-error m-2 rounded-lg text-sm">
-                    <CircleAlertIcon /> No Slots Available
-                  </div>
-                )}
-                {new Date(tutor.sessionStartDate) < new Date() ? (
-                  <div className="flex items-center justify-center gap-2 p-2 bg-success m-2 rounded-lg text-sm">
-                    <LockOpen /> Booking is open for this tutor
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center gap-2 p-2 bg-info m-2 rounded-lg text-sm">
-                    <Lock /> Booking is not available yet for this tutor
-                  </div>
-                )}
-              </div>
+              <BookingInfo tutor={tutor} />
               <div className="flex items-center justify-center m-2 ">
                 <BookSessionButton tutor={tutor} />
               </div>

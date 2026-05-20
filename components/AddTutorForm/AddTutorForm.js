@@ -5,7 +5,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
-const AddTutorForm = () => {
+const AddTutorForm = ({ token }) => {
   const { data } = useSession();
   const user = data?.user;
   const { register, handleSubmit } = useForm();
@@ -51,6 +51,7 @@ const AddTutorForm = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(tutorData),
     });

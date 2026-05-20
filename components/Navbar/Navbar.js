@@ -17,7 +17,7 @@ const Navbar = () => {
     { label: "My Booked Sessions", navigation: "/booking" },
   ];
 
-  const { data } = useSession();
+  const { data, isPending } = useSession();
   const user = data?.user;
   return (
     <div className="max-lg:collapse bg-base-200 shadow-sm w-full border-b border-b/10 rounded-none">
@@ -52,74 +52,86 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {regularLinks.map((link) => (
-              <li key={link.label}>
+          {isPending ? (
+            <span className="loading loading-spinner text-primary"></span>
+          ) : (
+            <ul className="menu menu-horizontal px-1">
+              {regularLinks.map((link, idx) => (
+                <li key={idx}>
+                  <Link href={link.navigation}>{link.label}</Link>
+                </li>
+              ))}
+
+              {user &&
+                loggedInLinks.map((link, idx) => (
+                  <li key={idx}>
+                    <Link href={link.navigation}>{link.label}</Link>
+                  </li>
+                ))}
+            </ul>
+          )}
+        </div>
+        <div className="navbar-end">
+          {isPending ? (
+            <span className="loading loading-spinner text-primary"></span>
+          ) : (
+            <ul className="menu menu-horizontal px-1 flex items-center">
+              <li>
+                <ThemeToggler />
+              </li>
+              {!user && (
+                <li>
+                  <Link href={"/login"} className="btn btn-primary">
+                    Log In
+                  </Link>
+                </li>
+              )}
+              {user && (
+                <li>
+                  <div className="dropdown dropdown-hover dropdown-end">
+                    <div tabIndex={0} role="button">
+                      <User />
+                    </div>
+                    <ul
+                      tabIndex={-1}
+                      className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                    >
+                      <li>
+                        <Link href={"/profile"} className="btn btn-ghost">
+                          My Profile
+                        </Link>
+                      </li>
+                      <li>
+                        <LogOutButton />
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              )}
+            </ul>
+          )}
+        </div>
+      </div>
+
+      <div className="collapse-content lg:hidden z-1">
+        {isPending ? (
+          <span className="loading loading-spinner text-primary"></span>
+        ) : (
+          <ul className="menu px-1 flex items-center">
+            {regularLinks.map((link, idx) => (
+              <li key={idx}>
                 <Link href={link.navigation}>{link.label}</Link>
               </li>
             ))}
 
             {user &&
-              loggedInLinks.map((link) => (
-                <li key={link.label}>
+              loggedInLinks.map((link, idx) => (
+                <li key={idx}>
                   <Link href={link.navigation}>{link.label}</Link>
                 </li>
               ))}
           </ul>
-        </div>
-        <div className="navbar-end">
-          <ul className="menu menu-horizontal px-1 flex items-center">
-            <li>
-              <ThemeToggler />
-            </li>
-            {!user && (
-              <li>
-                <Link href={"/login"} className="btn btn-primary">
-                  Log In
-                </Link>
-              </li>
-            )}
-            {user && (
-              <li>
-                <div className="dropdown dropdown-hover dropdown-end">
-                  <div tabIndex={0} role="button">
-                    <User />
-                  </div>
-                  <ul
-                    tabIndex="-1"
-                    className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
-                  >
-                    <li>
-                      <Link href={"/my-profile"} className="btn btn-ghost">
-                        My Profile
-                      </Link>
-                    </li>
-                    <li>
-                      <LogOutButton />
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            )}
-          </ul>
-        </div>
-      </div>
-
-      <div className="collapse-content lg:hidden z-1">
-        <ul className="menu px-1 flex items-center">
-          {regularLinks.map((link) => (
-            <li key={link.label}>
-              <Link href={link.navigation}>{link.label}</Link>
-            </li>
-          ))}
-
-          {user &&
-            loggedInLinks.map((link) => (
-              <li key={link.label}>
-                <Link href={link.navigation}>{link.label}</Link>
-              </li>
-            ))}
-        </ul>
+        )}
       </div>
     </div>
   );

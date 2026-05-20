@@ -31,11 +31,11 @@ const RegisterForm = ({ searchParams }) => {
       toast.success(`User Registered: ${data.user.name}`);
       router.replace("/login");
     }
-    const handleGoogleLogin = () => {
-      signIn.social({
-        provider: "google",
-      });
-    };
+  };
+  const handleGoogleLogin = () => {
+    signIn.social({
+      provider: "google",
+    });
   };
   return (
     <div className="container mx-auto my-20 px-2 md:px-0">

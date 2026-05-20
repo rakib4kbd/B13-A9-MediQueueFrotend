@@ -1,15 +1,18 @@
 "use client";
 
-import { useSession } from "@/lib/auth-client";
+import { authClient, useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 import toast from "react-hot-toast";
+
+const tokenData = authClient.token();
 
 const BookSessionButton = ({ tutor }) => {
   const { data } = useSession();
   const user = data?.user;
 
+  const token = use(tokenData);
   const router = useRouter();
 
   const {
@@ -52,6 +55,7 @@ const BookSessionButton = ({ tutor }) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            authorization: `Bearer ${token.data.token}`,
           },
           body: JSON.stringify({
             tutorId: formData.tutorId,
@@ -77,7 +81,6 @@ const BookSessionButton = ({ tutor }) => {
 
       router.refresh();
     } catch (error) {
-      console.error(error);
       toast.error("Something went wrong!");
     }
   };

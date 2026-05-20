@@ -4,9 +4,16 @@ import { headers } from "next/headers";
 
 const BookedSessionPage = async () => {
   const { user } = await auth.api.getSession({ headers: await headers() });
+  const { token } = await auth.api.getToken({ headers: await headers() });
   const bookedSessionsPromise = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/booking/${user.id}`,
-    { method: "GET", cache: "no-store" },
+    {
+      method: "GET",
+      cache: "no-store",
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    },
   );
   const bookedSessions = await bookedSessionsPromise.json();
 
@@ -66,7 +73,7 @@ const BookedSessionPage = async () => {
                     )}
                   </td>
                   <td>
-                    <CancelBookingButton session={session} />
+                    <CancelBookingButton session={session} token={token} />
                   </td>
                 </tr>
               ))}
