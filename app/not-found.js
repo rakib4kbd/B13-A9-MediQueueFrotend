@@ -7,7 +7,7 @@ export const metadata = {
 const NotFound = () => {
   return (
     <div className="container mx-auto py-10">
-      <div className="flex items-center justify-center min-h-50 text-2xl bg-base-200 my-2 rounded-lg border border-neutral/25">
+      <div className="flex items-center justify-center min-h-100 text-2xl bg-base-200 my-2 rounded-lg border border-neutral/25">
         Page Not Found
       </div>
       <Link href={"/"} className="btn btn-primary btn-block">

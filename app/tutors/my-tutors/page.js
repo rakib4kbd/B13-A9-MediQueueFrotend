@@ -25,7 +25,7 @@ const MyTutorPage = async () => {
 
       <div className="overflow-x-auto rounded-box border border-base-content/20 bg-base-200">
         {tutors.length === 0 ? (
-          <p className=" flex items-center justify-center p-4 text-center min-h-50">
+          <p className=" flex items-center justify-center p-4 text-center min-h-100">
             No tutors found.
           </p>
         ) : (

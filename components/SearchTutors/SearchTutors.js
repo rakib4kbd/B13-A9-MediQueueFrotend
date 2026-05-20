@@ -1,6 +1,7 @@
 "use client";
 
 import { Search } from "lucide-react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const SearchTutor = ({ setTutors }) => {
@@ -11,17 +12,20 @@ const SearchTutor = ({ setTutors }) => {
       endDate: "",
     },
   });
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data) => {
+    setLoading(true);
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/tutors?search=${data.search}&registrationStart=${data.startDate}&registrationEnd=${data.endDate}`,
     );
     const tutors = await res.json();
     setTutors(tutors);
+    setLoading(false);
   };
 
   return (
-    <div className="bg-base-100 rounded-lg p-5 border border-neutral/20">
+    <div className="bg-base-100 rounded-lg p-5 border border-primary/50">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
           <div className="form-control md:col-span-2">
@@ -70,7 +74,11 @@ const SearchTutor = ({ setTutors }) => {
             type="submit"
             className="btn btn-outline btn-primary"
           >
-            Apply Filters
+            {!loading ? (
+              "Apply Filters"
+            ) : (
+              <div className="loading loading-lg loading-spinner"></div>
+            )}
           </button>
         </div>
       </form>

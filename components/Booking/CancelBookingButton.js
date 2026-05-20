@@ -1,33 +1,22 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const CancelBookingButton = ({ session, token }) => {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   return (
     <>
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-      {session.status !== "cancelled" ? (
-        <button
-          className="btn btn-sm btn-error text-white"
-          onClick={() =>
-            document.getElementById(`modal_${session._id}`).showModal()
-          }
-        >
-          Cancel Booking
-        </button>
-      ) : (
-        <button
-          className="btn btn-sm btn-error text-white"
-          disabled
-          onClick={() =>
-            document.getElementById(`modal_${session._id}`).showModal()
-          }
-        >
-          Cancel Booking
-        </button>
-      )}
+      <button
+        className={`btn btn-sm btn-error text-white ${session.status === "cancelled" && "btn-disabled"}`}
+        onClick={() =>
+          document.getElementById(`modal_${session._id}`).showModal()
+        }
+      >
+        Cancel Booking
+      </button>
+
       <dialog id={`modal_${session._id}`} className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">Confirm Cancellation</h3>
@@ -39,10 +28,11 @@ const CancelBookingButton = ({ session, token }) => {
               }
               className="btn btn-sm btn-outline"
             >
-              Cancel
+              Back
             </button>
             <button
               onClick={async () => {
+                setLoading(true);
                 const res = await fetch(
                   `${process.env.NEXT_PUBLIC_BACKEND_URL}/booking/${session._id}`,
                   {
@@ -65,10 +55,17 @@ const CancelBookingButton = ({ session, token }) => {
 
                 document.getElementById(`modal_${session._id}`).close();
                 router.refresh();
+                setLoading(false);
               }}
-              className="btn btn-sm btn-error text-white"
+              className="btn btn-sm btn-error text-white w-25"
             >
-              Confirm
+              {loading ? (
+                <div className="flex items-center">
+                  <div className="loading loading-sm loading-spinner"></div>
+                </div>
+              ) : (
+                "Confirm"
+              )}
             </button>
           </div>
         </div>

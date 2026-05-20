@@ -27,7 +27,7 @@ const BookedSessionPage = async () => {
 
       <div className="overflow-x-auto rounded-box border border-base-content/20 bg-base-200">
         {bookedSessions.length === 0 ? (
-          <p className=" flex items-center justify-center p-4 text-center min-h-50">
+          <p className=" flex items-center justify-center p-4 text-center min-h-100">
             No booked sessions found.
           </p>
         ) : (
@@ -77,7 +77,9 @@ const BookedSessionPage = async () => {
                     )}
                   </td>
                   <td>
-                    <CancelBookingButton session={session} token={token} />
+                    <div className="flex items-center">
+                      <CancelBookingButton session={session} token={token} />
+                    </div>
                   </td>
                 </tr>
               ))}

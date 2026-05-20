@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession } from "@/lib/auth-client";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -9,6 +9,7 @@ const AddTutorForm = ({ token }) => {
   const { data } = useSession();
   const user = data?.user;
   const { register, handleSubmit } = useForm();
+  const [loading, setLoading] = useState(false);
 
   const subjects = [
     "Mathematics",
@@ -20,6 +21,7 @@ const AddTutorForm = ({ token }) => {
   ];
 
   const onSubmit = async (data) => {
+    setLoading(true);
     const tutorData = {
       tutorName: data.tutorName,
       photo: data.photo,
@@ -58,6 +60,7 @@ const AddTutorForm = ({ token }) => {
       },
       body: JSON.stringify(tutorData),
     });
+    setLoading(false);
     const result = await res.json();
     if (result.acknowledged) {
       toast.success("Tutor added successfully");
@@ -215,7 +218,13 @@ const AddTutorForm = ({ token }) => {
             <option value="Both">Both</option>
           </select>
 
-          <button className="btn btn-primary mt-6">Add Tutor</button>
+          <button className={`btn btn-primary mt-6`}>
+            {loading ? (
+              <div className="loading loading-lg loading-spinner"></div>
+            ) : (
+              "Add Tutor"
+            )}
+          </button>
         </fieldset>
       </form>
     </div>

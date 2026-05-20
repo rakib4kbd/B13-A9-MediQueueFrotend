@@ -3,7 +3,7 @@
 import { authClient, useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { use, useEffect } from "react";
+import { use, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const tokenData = authClient.token();
@@ -14,6 +14,7 @@ const BookSessionButton = ({ tutor }) => {
 
   const token = use(tokenData);
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -41,13 +42,14 @@ const BookSessionButton = ({ tutor }) => {
         studentName: user?.name || "",
         studentEmail: user?.email || "",
         phone: "",
-        status: "pending",
+        status: "confirmed",
       });
     }
   }, [user, tutor, reset]);
 
   const handleBooking = async (formData) => {
     try {
+      setLoading(true);
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/booking/`,
         {
@@ -68,6 +70,7 @@ const BookSessionButton = ({ tutor }) => {
           }),
         },
       );
+      setLoading(false);
 
       if (res.ok) {
         toast.success("Session booked successfully!");
@@ -161,7 +164,11 @@ const BookSessionButton = ({ tutor }) => {
                     type="submit"
                     className="btn btn-primary btn-block mt-4"
                   >
-                    Submit
+                    {!loading ? (
+                      "Submit"
+                    ) : (
+                      <div className="loading loading-spinner"></div>
+                    )}
                   </button>
                 </fieldset>
               </form>

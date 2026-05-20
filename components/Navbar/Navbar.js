@@ -6,6 +6,7 @@ import Link from "next/link";
 import LogOutButton from "./LogOutButton/LogOutButton";
 import { useSession } from "@/lib/auth-client";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const regularLinks = [
@@ -18,10 +19,17 @@ const Navbar = () => {
     { label: "My Booked Sessions", navigation: "/booking" },
   ];
 
+  const pathname = usePathname();
   const { data, isPending } = useSession();
   const user = data?.user;
+
+  const closeMobileMenu = () => {
+    const checkbox = document.getElementById("navbar-1-toggle");
+    if (checkbox) checkbox.checked = false;
+  };
+
   return (
-    <div className="relative z-50 max-lg:collapse bg-base-200 shadow-sm w-full border-b border-b/10 rounded-none overflow-visible">
+    <div className="relative z-50 max-lg:collapse bg-base-200 shadow-sm w-full border-b border-primary/50 rounded-none overflow-visible">
       <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
       <label
         htmlFor="navbar-1-toggle"
@@ -59,14 +67,32 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">
               {regularLinks.map((link, idx) => (
                 <li key={idx}>
-                  <Link href={link.navigation}>{link.label}</Link>
+                  <Link
+                    href={link.navigation}
+                    className={`btn btn-ghost rounded-none flex items-center justify-center flex-row px-4 gap-1 ${
+                      pathname === link.navigation
+                        ? "border-b-2 rounded-none border-b-primary"
+                        : ""
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
 
               {user &&
                 loggedInLinks.map((link, idx) => (
                   <li key={idx}>
-                    <Link href={link.navigation}>{link.label}</Link>
+                    <Link
+                      href={link.navigation}
+                      className={`btn btn-ghost rounded-none flex items-center justify-center flex-row px-4 gap-1 ${
+                        pathname === link.navigation
+                          ? "border-b-2 rounded-none border-b-primary"
+                          : ""
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
             </ul>
@@ -82,14 +108,18 @@ const Navbar = () => {
               </li>
               {!user && (
                 <li>
-                  <Link href={"/login"} className="btn btn-primary">
+                  <Link
+                    href={"/login"}
+                    onClick={closeMobileMenu}
+                    className="btn btn-primary"
+                  >
                     Log In
                   </Link>
                 </li>
               )}
               {user && (
                 <li>
-                  <div className="dropdown dropdown-hover dropdown-end relative z-50 overflow-visible">
+                  <div className="dropdown dropdown-end relative z-50 overflow-visible">
                     {user?.image ? (
                       <div
                         tabIndex={0}
@@ -113,7 +143,11 @@ const Navbar = () => {
                       className="dropdown-content menu bg-base-100 rounded-box z-50 w-52 shadow-sm"
                     >
                       <li>
-                        <Link href={"/profile"} className="btn btn-ghost">
+                        <Link
+                          href={"/profile"}
+                          onClick={closeMobileMenu}
+                          className="btn btn-ghost"
+                        >
                           My Profile
                         </Link>
                       </li>
@@ -133,17 +167,29 @@ const Navbar = () => {
         {isPending ? (
           <span className="loading loading-spinner text-primary"></span>
         ) : (
-          <ul className="menu px-1 flex items-center">
+          <ul className="menu w-full px-1 flex flex-col items-center justify-center gap-2">
             {regularLinks.map((link, idx) => (
-              <li key={idx}>
-                <Link href={link.navigation}>{link.label}</Link>
+              <li key={idx} className="w-full">
+                <Link
+                  href={link.navigation}
+                  className="btn"
+                  onClick={closeMobileMenu}
+                >
+                  {link.label}
+                </Link>
               </li>
             ))}
 
             {user &&
               loggedInLinks.map((link, idx) => (
-                <li key={idx}>
-                  <Link href={link.navigation}>{link.label}</Link>
+                <li key={idx} className="w-full">
+                  <Link
+                    href={link.navigation}
+                    className="btn"
+                    onClick={closeMobileMenu}
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
           </ul>
