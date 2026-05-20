@@ -21,14 +21,14 @@ const Navbar = () => {
   const { data, isPending } = useSession();
   const user = data?.user;
   return (
-    <div className="max-lg:collapse bg-base-200 shadow-sm w-full border-b border-b/10 rounded-none">
+    <div className="relative z-50 max-lg:collapse bg-base-200 shadow-sm w-full border-b border-b/10 rounded-none overflow-visible">
       <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
       <label
         htmlFor="navbar-1-toggle"
         className="fixed inset-0 hidden max-lg:peer-checked:block"
       ></label>
-      <div className="collapse-title navbar">
-        <div className="navbar-start">
+      <div className="collapse-title navbar overflow-visible">
+        <div className="navbar-start overflow-visible">
           <label htmlFor="navbar-1-toggle" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ const Navbar = () => {
             </ul>
           )}
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end overflow-visible">
           {isPending ? (
             <span className="loading loading-spinner text-primary"></span>
           ) : (
@@ -89,7 +89,7 @@ const Navbar = () => {
               )}
               {user && (
                 <li>
-                  <div className="dropdown dropdown-hover dropdown-end">
+                  <div className="dropdown dropdown-hover dropdown-end relative z-50 overflow-visible">
                     {user?.image ? (
                       <div
                         tabIndex={0}
@@ -110,7 +110,7 @@ const Navbar = () => {
                     )}
                     <ul
                       tabIndex={-1}
-                      className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                      className="dropdown-content menu bg-base-100 rounded-box z-50 w-52 shadow-sm"
                     >
                       <li>
                         <Link href={"/profile"} className="btn btn-ghost">
@@ -129,7 +129,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="collapse-content lg:hidden z-1">
+      <div className="collapse-content lg:hidden z-50">
         {isPending ? (
           <span className="loading loading-spinner text-primary"></span>
         ) : (

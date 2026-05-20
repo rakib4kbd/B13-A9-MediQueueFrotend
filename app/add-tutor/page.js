@@ -9,7 +9,7 @@ export const metadata = {
 const AddTutorPage = async () => {
   const { token } = await auth.api.getToken({ headers: await headers() });
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto px-2 md:py-10">
       <AddTutorForm token={token} />
     </div>
   );

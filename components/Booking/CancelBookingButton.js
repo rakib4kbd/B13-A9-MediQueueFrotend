@@ -37,7 +37,7 @@ const CancelBookingButton = ({ session, token }) => {
               onClick={() =>
                 document.getElementById(`modal_${session._id}`).close()
               }
-              className="btn btn-sm btn-neutral btn-outline"
+              className="btn btn-sm btn-outline"
             >
               Cancel
             </button>

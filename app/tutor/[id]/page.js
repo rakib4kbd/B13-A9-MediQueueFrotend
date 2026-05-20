@@ -57,17 +57,22 @@ const TutorDetailPage = async ({ params }) => {
   console.log(tutor);
   return (
     <div className="bg-base-200">
-      <div className="container mx-auto py-5">
+      <div className="container mx-auto py-5 px-2">
         <Link href={"/tutors"} className="btn btn-ghost">
           <ArrowLeftIcon /> Back to Tutor Listing
         </Link>
 
-        <div className="grid grid-cols-3 gap-4 py-5">
-          <div className="col-span-2 flex flex-row p-4 border border-primary/20 rounded-lg bg-base-100 gap-4">
+        <div className="grid md:grid-cols-3 gap-4 py-5">
+          <div className="md:col-span-2 flex flex-col md:flex-row md:items-center p-4 border border-primary/20 rounded-lg bg-base-100 gap-4">
             <div className="flex items-center justify-center">
-              <figure className="relative aspect-square w-40">
+              <figure className="relative aspect-square w-full md:w-50 rounded-lg">
                 {tutor.photo ? (
-                  <Image src={tutor.photo} fill alt="" />
+                  <Image
+                    src={tutor.photo}
+                    fill
+                    alt=""
+                    className="object-cover rounded-lg"
+                  />
                 ) : (
                   <Image
                     src="https://images.unsplash.com/photo-1629425733761-caae3b5f2e50"
@@ -81,21 +86,24 @@ const TutorDetailPage = async ({ params }) => {
             <div className="flex flex-col gap-2">
               <h1 className="text-3xl font-semibold">{tutor.tutorName}</h1>
               <p className="text-primary/75">Specialist in {tutor.subject}</p>
-              <p className="flex items-center gap-1">
+              <p className="flex items-center gap-1 text-sm">
                 <BriefcaseBusinessIcon width={18} />
                 {tutor?.institution?.experience}
               </p>
-              <p className="flex items-center gap-1">
+              <p className="flex items-center gap-1 text-sm">
                 <UniversityIcon width={18} />
                 {tutor?.institution?.name}
               </p>
-              <p className="flex items-center gap-1">
+              <p className="flex items-center gap-1 text-sm">
                 <MapPin width={18} />
                 {tutor?.location?.area},{tutor?.location?.city}
               </p>
-              <p className="badge badge-info rounded-lg">
-                {tutor?.location?.teachingMode}
-              </p>
+              <div className="flex items-end  gap-2">
+                <p className="text-sm">Teaching Mode:</p>
+                <p className="badge badge-info rounded-lg">
+                  {tutor?.location?.teachingMode}
+                </p>
+              </div>
             </div>
           </div>
           <div className="border border-neutral/20 rounded-lg flex flex-col">

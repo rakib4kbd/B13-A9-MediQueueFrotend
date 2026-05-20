@@ -16,13 +16,13 @@ const KeyMetrics = () => {
     },
   ];
   return (
-    <div className="bg-base-100 py-10">
+    <div className="bg-base-100 py-10 px-2">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-5">
-        <h1 className="text-3xl font-semibold col-span-4 items-center text-center">
+        <h1 className="text-3xl font-semibold md:col-span-4 items-center text-center">
           Why Choose Us
         </h1>
 
-        <div className="col-span-2 grid grid-cols-2 gap-5 items-center justify-center">
+        <div className="col-span-2 grid grid-cols-2 gap-2 md:gap-5 items-center justify-center">
           {keyMetrics.map((metric, index) => (
             <div
               key={index}

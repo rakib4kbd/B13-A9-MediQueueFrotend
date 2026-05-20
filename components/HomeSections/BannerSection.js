@@ -22,7 +22,7 @@ export default function App() {
       btns: [
         {
           label: "Find Tutors",
-          style: "btn",
+          style: "btn btn-primary",
           navigation: "/tutors",
         },
       ],
@@ -37,7 +37,7 @@ export default function App() {
       btns: [
         {
           label: "Book a Session",
-          style: "btn",
+          style: "btn btn-primary",
           navigation: "/tutors",
         },
       ],
@@ -52,7 +52,7 @@ export default function App() {
       btns: [
         {
           label: "Get Started",
-          style: "btn",
+          style: "btn btn-primary",
           navigation: "/register",
         },
       ],
@@ -60,7 +60,7 @@ export default function App() {
   ];
 
   return (
-    <div className="py-5 px-2 md:px-0">
+    <div className="py-5 px-2 md:px-0 container mx-auto">
       <div className="relative">
         <Swiper
           spaceBetween={30}
@@ -80,7 +80,7 @@ export default function App() {
             <SwiperSlide key={slide.id}>
               <div className="relative w-full">
                 <div className="card bg-base-100 image-full">
-                  <figure className="aspect-2/1 relative">
+                  <figure className="relative">
                     <Image
                       src={slide.imgSrc}
                       alt={slide.title}
@@ -94,8 +94,10 @@ export default function App() {
                     <div className="flex flex-col items-center md:items-start justify-around md:justify-center gap-3 min-h-100">
                       <div></div>
                       <div className="flex flex-col items-start gap-3">
-                        <h2 className="card-title text-4xl">{slide.title}</h2>
-                        <p className="text-lg">{slide.subtitle}</p>
+                        <h2 className="card-title text-4xl text-primary">
+                          {slide.title}
+                        </h2>
+                        <p className="text-base">{slide.subtitle}</p>
                       </div>
 
                       <div className="card-actions flex justify-start">

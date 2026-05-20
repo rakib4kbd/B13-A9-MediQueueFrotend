@@ -29,11 +29,11 @@ const howItWork = [
 
 const HowItWorkSection = () => {
   return (
-    <div className="my-10">
-      <div className="container mx-auto">
-        <div className="my-10">
+    <div className="py-20 bg-base-300 px-2">
+      <div className="container mx-auto flex flex-col gap-10">
+        <div>
           <h2 className="text-3xl font-semibold text-center">How It Works</h2>
-          <p className="text-neutral text-center">
+          <p className="text-base text-center">
             Getting started with our platform is simple and straightforward.
           </p>
         </div>
@@ -41,7 +41,7 @@ const HowItWorkSection = () => {
           {howItWork.map((step) => (
             <div
               key={step.id}
-              className="bg-white p-5 rounded-lg shadow-md text-center flex flex-col items-center gap-3 hover:shadow-md hover:shadow-primary/20"
+              className="bg-base-100 border border-primary/25 p-5 rounded-lg shadow-md text-center flex flex-col items-center gap-3 hover:shadow-md hover:shadow-primary/20"
             >
               <div
                 className={`flex justify-center ${step.bg} p-5 rounded-full`}

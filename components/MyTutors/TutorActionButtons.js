@@ -125,7 +125,7 @@ const TutorActionButtons = ({ tutor, token }) => {
   return (
     <div className="flex items-center justify-end">
       <button
-        className="text-neutral btn btn-sm"
+        className="btn btn-sm"
         onClick={() =>
           document.getElementById(`tutorEdit${tutor._id}`).showModal()
         }
@@ -168,7 +168,7 @@ const TutorActionButtons = ({ tutor, token }) => {
 
       {/* TUTOR EDIT MODAL */}
       <dialog id={`tutorEdit${tutor._id}`} className="modal">
-        <div className="modal-box bg-base-200 border-base-300 rounded-box border">
+        <div className="modal-box h-3/4 bg-base-200 border-base-300 rounded-box border">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-circle btn-ghost absolute right-2 top-5">
@@ -321,7 +321,7 @@ const TutorActionButtons = ({ tutor, token }) => {
               </select>
 
               <div className="flex items-center justify-end gap-3 mt-3">
-                <button type="submit" className="btn btn-block btn-secondary">
+                <button type="submit" className="btn btn-block btn-primary">
                   Update
                 </button>
               </div>

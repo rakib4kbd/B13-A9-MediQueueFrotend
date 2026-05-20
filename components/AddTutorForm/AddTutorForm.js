@@ -69,7 +69,7 @@ const AddTutorForm = ({ token }) => {
   return (
     <div className="flex items-center justify-center">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-6 ">
+        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-2 md:p-6">
           <legend className="fieldset-legend text-lg font-semibold">
             Tutor Information
           </legend>

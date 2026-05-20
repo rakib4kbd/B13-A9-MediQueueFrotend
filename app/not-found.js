@@ -1,6 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
+export const metadata = {
+  title: "404 | Not Found",
+};
 const NotFound = () => {
   return (
     <div className="container mx-auto py-10">

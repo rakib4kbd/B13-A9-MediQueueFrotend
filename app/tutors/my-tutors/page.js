@@ -20,7 +20,7 @@ const MyTutorPage = async () => {
     },
   ).then((res) => res.json());
   return (
-    <div className="container mx-auto my-10">
+    <div className="container mx-auto py-5 md:py-10 px-2">
       <h1 className="text-2xl font-bold mb-4">My Tutors</h1>
 
       <div className="overflow-x-auto rounded-box border border-base-content/20 bg-base-200">
