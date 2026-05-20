@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MediQueue Frontend
 
-## Getting Started
+A Next.js client application for the MediQueue tutoring marketplace.
 
-First, run the development server:
+**Live site:** https://b13-a9-medi-queue-frotend.vercel.app/
+
+## Overview
+
+MediQueue Frontend provides a polished interface for students and tutors to discover tutors, book sessions, manage bookings, and update profiles. It is built with Next.js 16, React 19, Tailwind CSS, DaisyUI, and integrates with a backend API via `NEXT_PUBLIC_BACKEND_URL`.
+
+## Features
+
+- Browse tutors with searchable listings and detailed tutor profiles
+- Book tutoring sessions directly from a tutor's detail page
+- View and cancel booked sessions in the student dashboard
+- Add new tutors and manage personal tutor listings
+- User authentication with login and registration flows
+- Responsive layout and theme-friendly UI components
+
+## Main Pages
+
+- `/` — home page with banner, tutor overview, feature highlights, and metrics
+- `/login` — student login page
+- `/register` — new account registration page
+- `/tutors` — tutors listing with search support
+- `/tutor/[id]` — tutor detail and booking page
+- `/booking` — booked sessions dashboard
+- `/profile` — authenticated user profile page
+- `/add-tutor` — add a new tutor record
+- `/tutors/my-tutors` — manage tutors owned by the logged-in user
+
+## Local Setup
+
+1. Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Add environment variables in a `.env` file:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+NEXT_PUBLIC_BACKEND_URL=https://your-backend.example.com
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Start the development server:
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The frontend depends on a running MediQueue backend API for tutor data, bookings, and authentication.
+- Ensure the backend URL is available in `NEXT_PUBLIC_BACKEND_URL` before running the app.
+- This project uses Tailwind CSS and DaisyUI for styling.
