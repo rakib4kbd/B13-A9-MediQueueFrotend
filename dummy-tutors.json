@@ -6,6 +6,10 @@
     "hourlyFee": 65,
     "totalSlot": 80,
     "sessionStartDate": "2026-06-01",
+    "availability": {
+      "time": "9AM - 5PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "Stanford University",
       "experience": "6 years teaching calculus and algebra"
@@ -28,6 +32,10 @@
     "hourlyFee": 70,
     "totalSlot": 60,
     "sessionStartDate": "2026-06-03",
+    "availability": {
+      "time": "10AM - 6PM",
+      "day": "Tue - Sat"
+    },
     "institution": {
       "name": "MIT",
       "experience": "8 years teaching mechanics and quantum physics"
@@ -50,6 +58,10 @@
     "hourlyFee": 55,
     "totalSlot": 90,
     "sessionStartDate": "2026-06-05",
+    "availability": {
+      "time": "8AM - 4PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "Harvard University",
       "experience": "5 years teaching organic chemistry"
@@ -72,6 +84,10 @@
     "hourlyFee": 50,
     "totalSlot": 75,
     "sessionStartDate": "2026-06-07",
+    "availability": {
+      "time": "9AM - 3PM",
+      "day": "Mon - Thu"
+    },
     "institution": {
       "name": "University of Chicago",
       "experience": "4 years teaching genetics and microbiology"
@@ -94,6 +110,10 @@
     "hourlyFee": 45,
     "totalSlot": 100,
     "sessionStartDate": "2026-06-09",
+    "availability": {
+      "time": "11AM - 7PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "Yale University",
       "experience": "7 years teaching literature and writing"
@@ -116,6 +136,10 @@
     "hourlyFee": 85,
     "totalSlot": 50,
     "sessionStartDate": "2026-06-11",
+    "availability": {
+      "time": "10AM - 4PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "Carnegie Mellon University",
       "experience": "10 years teaching programming and AI"
@@ -138,6 +162,10 @@
     "hourlyFee": 40,
     "totalSlot": 120,
     "sessionStartDate": "2026-06-13",
+    "availability": {
+      "time": "9AM - 5PM",
+      "day": "Mon - Sat"
+    },
     "institution": {
       "name": "Princeton University",
       "experience": "5 years teaching world history"
@@ -160,6 +188,10 @@
     "hourlyFee": 75,
     "totalSlot": 65,
     "sessionStartDate": "2026-06-15",
+    "availability": {
+      "time": "10AM - 6PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "Columbia University",
       "experience": "9 years teaching macroeconomics"
@@ -182,6 +214,10 @@
     "hourlyFee": 60,
     "totalSlot": 85,
     "sessionStartDate": "2026-06-17",
+    "availability": {
+      "time": "8AM - 3PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "UC Berkeley",
       "experience": "6 years teaching probability and statistics"
@@ -204,6 +240,10 @@
     "hourlyFee": 42,
     "totalSlot": 70,
     "sessionStartDate": "2026-06-19",
+    "availability": {
+      "time": "9AM - 4PM",
+      "day": "Tue - Sat"
+    },
     "institution": {
       "name": "University of Washington",
       "experience": "4 years teaching physical geography"
@@ -226,6 +266,10 @@
     "hourlyFee": 68,
     "totalSlot": 95,
     "sessionStartDate": "2026-06-21",
+    "availability": {
+      "time": "11AM - 7PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "UCLA",
       "experience": "7 years teaching behavioral psychology"
@@ -248,6 +292,10 @@
     "hourlyFee": 95,
     "totalSlot": 45,
     "sessionStartDate": "2026-06-23",
+    "availability": {
+      "time": "9AM - 2PM",
+      "day": "Mon - Thu"
+    },
     "institution": {
       "name": "Georgia Tech",
       "experience": "8 years teaching machine learning"
@@ -270,6 +318,10 @@
     "hourlyFee": 52,
     "totalSlot": 110,
     "sessionStartDate": "2026-06-25",
+    "availability": {
+      "time": "10AM - 5PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "Oxford University",
       "experience": "5 years teaching ethics and logic"
@@ -292,6 +344,10 @@
     "hourlyFee": 58,
     "totalSlot": 78,
     "sessionStartDate": "2026-06-27",
+    "availability": {
+      "time": "9AM - 5PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "University of Texas",
       "experience": "6 years teaching financial accounting"
@@ -314,6 +370,10 @@
     "hourlyFee": 66,
     "totalSlot": 82,
     "sessionStartDate": "2026-06-29",
+    "availability": {
+      "time": "10AM - 6PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "Duke University",
       "experience": "7 years teaching international relations"
@@ -336,6 +396,10 @@
     "hourlyFee": 72,
     "totalSlot": 68,
     "sessionStartDate": "2026-07-01",
+    "availability": {
+      "time": "9AM - 5PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "Wharton School",
       "experience": "9 years teaching business management"
@@ -358,6 +422,10 @@
     "hourlyFee": 48,
     "totalSlot": 88,
     "sessionStartDate": "2026-07-03",
+    "availability": {
+      "time": "10AM - 6PM",
+      "day": "Tue - Sat"
+    },
     "institution": {
       "name": "NYU",
       "experience": "4 years teaching urban sociology"
@@ -380,6 +448,10 @@
     "hourlyFee": 88,
     "totalSlot": 55,
     "sessionStartDate": "2026-07-05",
+    "availability": {
+      "time": "9AM - 5PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
       "name": "Caltech",
       "experience": "11 years teaching electrical engineering"
@@ -392,51 +464,59 @@
     "addedBy": {
       "userId": "6a0b63c2eeb656cdbfd2c558",
       "email": "admin18@tutorshub.com",
-      "name": "Mason Admin"
+      "name": "Liam Admin"
     }
   },
   {
-    "tutorName": "Ella Robinson",
-    "photo": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=500&q=80",
-    "subject": "Art History",
-    "hourlyFee": 46,
-    "totalSlot": 92,
+    "tutorName": "Ella Baker",
+    "photo": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&q=80",
+    "subject": "Art",
+    "hourlyFee": 50,
+    "totalSlot": 90,
     "sessionStartDate": "2026-07-07",
+    "availability": {
+      "time": "10AM - 4PM",
+      "day": "Mon - Thu"
+    },
     "institution": {
-      "name": "University of Edinburgh",
-      "experience": "5 years teaching renaissance art"
+      "name": "Rhode Island School of Design",
+      "experience": "6 years teaching painting and sculpture"
     },
     "location": {
-      "area": "Old Town",
-      "city": "Edinburgh",
+      "area": "Providence",
+      "city": "Rhode Island",
       "teachingMode": "Online"
     },
     "addedBy": {
       "userId": "6a0b63c2eeb656cdbfd2c559",
       "email": "admin19@tutorshub.com",
-      "name": "Lily Admin"
+      "name": "Sophia Admin"
     }
   },
   {
-    "tutorName": "Jack Turner",
-    "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&q=80",
-    "subject": "Cyber Security",
-    "hourlyFee": 98,
-    "totalSlot": 40,
+    "tutorName": "Liam Johnson",
+    "photo": "https://images.unsplash.com/photo-1502767089025-6572583495b0?w=500&q=80",
+    "subject": "Music",
+    "hourlyFee": 55,
+    "totalSlot": 75,
     "sessionStartDate": "2026-07-09",
+    "availability": {
+      "time": "9AM - 3PM",
+      "day": "Mon - Fri"
+    },
     "institution": {
-      "name": "ETH Zurich",
-      "experience": "10 years teaching ethical hacking and security"
+      "name": "Berklee College of Music",
+      "experience": "7 years teaching piano and guitar"
     },
     "location": {
-      "area": "Central",
-      "city": "Zurich",
+      "area": "Boston",
+      "city": "Massachusetts",
       "teachingMode": "Hybrid"
     },
     "addedBy": {
       "userId": "6a0b63c2eeb656cdbfd2c560",
       "email": "admin20@tutorshub.com",
-      "name": "Jacob Admin"
+      "name": "Mia Admin"
     }
   }
 ]

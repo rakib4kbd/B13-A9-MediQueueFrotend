@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 
 const RegisterForm = ({ searchParams }) => {
   const params = searchParams;
+  const callbackUrl = params["callbackUrl"] || "/login";
 
   const [passVis, setPassVis] = useState(false);
   const {
@@ -26,7 +27,7 @@ const RegisterForm = ({ searchParams }) => {
       email: email,
       password: password,
       image: photoUrl,
-      callbackURL: "/login",
+      callbackURL: callbackUrl,
     });
     if (error) {
       toast.error(error.message);
@@ -39,6 +40,7 @@ const RegisterForm = ({ searchParams }) => {
   const handleGoogleLogin = () => {
     signIn.social({
       provider: "google",
+      callbackURL: callbackUrl,
     });
   };
   return (
@@ -168,7 +170,7 @@ const RegisterForm = ({ searchParams }) => {
               <p>Already Registered?</p>
               <Link
                 href={"/login"}
-                className="btn btn-neutral rounded-md btn-xs btn-outline"
+                className="btn rounded-md btn-xs btn-outline"
               >
                 Login Now
               </Link>

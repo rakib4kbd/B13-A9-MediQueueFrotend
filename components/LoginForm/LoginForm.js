@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 
 const LoginForm = ({ searchParams }) => {
   const params = searchParams;
-
+  const callbackUrl = params["callbackUrl"] || "/";
   const [passVis, setPassVis] = useState(false);
   const { register, handleSubmit } = useForm();
   const onSubmit = (formData) => {
@@ -19,18 +19,17 @@ const LoginForm = ({ searchParams }) => {
     const { data, error } = signIn.email({
       email: email,
       password: password,
-      callbackURL: "/",
-      //   callbackURL: params["callbackUrl"] || "/",
+      callbackURL: callbackUrl,
     });
     if (error) {
       toast.error(error.message);
     }
   };
+
   const handleGoogleLogin = async () => {
     const { data, error } = await signIn.social({
       provider: "google",
-      callbackURL: "/",
-      // callbackURL: params["callbackUrl"] || "/",
+      callbackURL: callbackUrl,
     });
     if (error) {
       toast.error(error.message);
@@ -119,7 +118,7 @@ const LoginForm = ({ searchParams }) => {
             <div className="flex items-end justify-end gap-2">
               <p>Not registered?</p>
               <Link
-                href={"/register"}
+                href={`/register?callbackUrl=${encodeURIComponent(callbackUrl)}`}
                 className="btn btn-xs btn-neutral btn-outline rounded-md"
               >
                 Register Now

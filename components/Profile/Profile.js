@@ -27,7 +27,7 @@ const Profile = ({ user }) => {
         <div className="flex flex-col items-center justify-center">
           <h2 className="card-title text-xl font-bold">{user?.name}</h2>
 
-          <p className="text-black/50 text-sm">{user?.email}</p>
+          <p className="text-sm">{user?.email}</p>
 
           <div className="mt-2">
             {user?.emailVerified ? (

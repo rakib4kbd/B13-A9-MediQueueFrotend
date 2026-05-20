@@ -5,10 +5,11 @@ export const metadata = {
   title: "Register",
 };
 
-const RegisterPage = () => {
+const RegisterPage = async ({ searchParams }) => {
+  const params = await searchParams;
   return (
     <div className="container mx-auto">
-      <RegisterForm />
+      <RegisterForm searchParams={params} />
     </div>
   );
 };
