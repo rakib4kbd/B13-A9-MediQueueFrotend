@@ -5,6 +5,7 @@ import { User } from "lucide-react";
 import Link from "next/link";
 import LogOutButton from "./LogOutButton/LogOutButton";
 import { useSession } from "@/lib/auth-client";
+import Image from "next/image";
 
 const Navbar = () => {
   const regularLinks = [
@@ -89,9 +90,24 @@ const Navbar = () => {
               {user && (
                 <li>
                   <div className="dropdown dropdown-hover dropdown-end">
-                    <div tabIndex={0} role="button">
-                      <User />
-                    </div>
+                    {user?.image ? (
+                      <div
+                        tabIndex={0}
+                        role="button"
+                        className="relative w-10 h-10"
+                      >
+                        <Image
+                          src={user?.image}
+                          alt="profile_image"
+                          fill
+                          className="object-cover rounded-full"
+                        />
+                      </div>
+                    ) : (
+                      <div tabIndex={0} role="button">
+                        <User />
+                      </div>
+                    )}
                     <ul
                       tabIndex={-1}
                       className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
