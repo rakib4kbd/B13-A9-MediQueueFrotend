@@ -64,9 +64,9 @@ const AddTutorForm = ({ token }) => {
   };
 
   return (
-    <div className="flex items-center justify-center py-10">
+    <div className="flex items-center justify-center">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-sm md:w-3xl border p-6">
+        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-6 ">
           <legend className="fieldset-legend text-lg font-semibold">
             Tutor Information
           </legend>
@@ -112,7 +112,7 @@ const AddTutorForm = ({ token }) => {
             </div>
 
             <div>
-              <label className="label">Time Slot</label>
+              <label className="label">Available Time Slot</label>
 
               <input
                 type="text"
@@ -127,16 +127,18 @@ const AddTutorForm = ({ token }) => {
             <div>
               <label className="label">Hourly Fee</label>
 
-              <input
-                type="number"
-                min={0}
-                className="input w-full"
-                placeholder="500"
-                {...register("hourlyFee", {
-                  required: true,
-                  valueAsNumber: true,
-                })}
-              />
+              <label className="input w-full">
+                $
+                <input
+                  type="number"
+                  min={0}
+                  placeholder="500"
+                  {...register("hourlyFee", {
+                    required: true,
+                    valueAsNumber: true,
+                  })}
+                />
+              </label>
             </div>
 
             <div>

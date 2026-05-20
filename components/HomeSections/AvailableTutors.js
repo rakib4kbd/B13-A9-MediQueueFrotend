@@ -22,7 +22,7 @@ const AvailableTutors = async () => {
         {tutors.map((tutor, idx) => (
           <div
             key={idx}
-            className="p-6 bg-base-100 rounded-lg border border-neutral/20 flex flex-col justify-between gap-2"
+            className="p-6 bg-base-100 rounded-lg border border-neutral/20 flex flex-col justify-between gap-2 shadow-md hover:border hover:border-primary"
           >
             <div className="flex flex-col gap-4">
               <div className="flex gap-3">

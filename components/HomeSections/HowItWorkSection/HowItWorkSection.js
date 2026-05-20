@@ -41,7 +41,7 @@ const HowItWorkSection = () => {
           {howItWork.map((step) => (
             <div
               key={step.id}
-              className="bg-white p-5 rounded-lg shadow-md text-center flex flex-col items-center gap-3"
+              className="bg-white p-5 rounded-lg shadow-md text-center flex flex-col items-center gap-3 hover:shadow-md hover:shadow-primary/20"
             >
               <div
                 className={`flex justify-center ${step.bg} p-5 rounded-full`}

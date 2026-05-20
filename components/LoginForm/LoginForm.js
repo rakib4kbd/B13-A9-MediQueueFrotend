@@ -109,12 +109,19 @@ const LoginForm = ({ searchParams }) => {
                 </button>
               </label>
             )}
+            <div className="flex items-center justify-end">
+              <Link href={"/login/#"} className="link">
+                Forget Password?
+              </Link>
+            </div>
+            <button className="btn btn-primary btn-block">Login</button>
 
-            <button className="btn btn-primary btn-block mt-4">Login</button>
-
-            <div className="mt-5 flex items-end justify-end gap-3">
+            <div className="flex items-end justify-end gap-2">
               <p>Not registered?</p>
-              <Link href={"/register"} className="btn btn-xs btn-outline">
+              <Link
+                href={"/register"}
+                className="btn btn-xs btn-neutral btn-outline rounded-md"
+              >
                 Register Now
               </Link>
             </div>
