@@ -29,7 +29,10 @@ const AddTutorForm = ({ token }) => {
       totalSlot: Number(data.totalSlot),
 
       sessionStartDate: data.sessionStartDate,
-
+      availability: {
+        time: data.availabilityTime,
+        day: data.availabilityDay,
+      },
       institution: {
         name: data.institutionName,
         experience: data.experience,
@@ -107,7 +110,7 @@ const AddTutorForm = ({ token }) => {
                 type="text"
                 className="input w-full"
                 placeholder="Sun - Thu"
-                {...register("availability.day")}
+                {...register("availabilityDay")}
               />
             </div>
 
@@ -118,7 +121,7 @@ const AddTutorForm = ({ token }) => {
                 type="text"
                 className="input w-full"
                 placeholder="10AM - 8PM"
-                {...register("availability.time")}
+                {...register("availabilityTime")}
               />
             </div>
           </div>

@@ -32,7 +32,6 @@ const BookSessionButton = ({ tutor }) => {
     },
   });
 
-  // Populate form when user/tutor loads
   useEffect(() => {
     if (user && tutor) {
       reset({

@@ -27,6 +27,7 @@ const TutorDetailPage = async ({ params }) => {
     },
   );
   const tutor = await res.json();
+  console.log(tutor);
   return (
     <div className="bg-base-200">
       <div className="container mx-auto py-5">
@@ -79,11 +80,11 @@ const TutorDetailPage = async ({ params }) => {
               <div className="bg-base-100 grid grid-cols-2">
                 <div className="bg-base-200 mx-2 my-4 p-4 rounded-lg flex flex-col items-center justify-center text-center ">
                   <p className="uppercase text-sm">Available Days</p>
-                  <p>Sun - Thu</p>
+                  <p>{tutor?.availability?.day}</p>
                 </div>
                 <div className="bg-base-200 mx-2 my-4 rounded-lg flex flex-col items-center justify-center text-center">
                   <p className="uppercase text-sm">Time Slot</p>
-                  <p>5:00 PM - 9:00 PM</p>
+                  <p>{tutor?.availability?.time}</p>
                 </div>
               </div>
               <BookingInfo tutor={tutor} />

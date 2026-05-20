@@ -1,81 +1,82 @@
+import TutorActionButtons from "@/components/MyTutors/TutorActionButtons";
 import { auth } from "@/lib/auth";
+import { User } from "lucide-react";
 import { headers } from "next/headers";
 import Image from "next/image";
-import Link from "next/link";
 
 const MyTutorPage = async () => {
   const { user } = await auth.api.getSession({ headers: await headers() });
+  const { token } = await auth.api.getToken({ headers: await headers() });
   const tutors = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/tutors?userId=${user.id}`,
+    {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    },
   ).then((res) => res.json());
   return (
-    <>
-      {tutors.length > 0 ? (
-        <div className="grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-4 my-3">
-          {tutors.map((tutor, idx) => (
-            <div
-              key={idx}
-              className="p-4 bg-base-100 rounded-lg border border-neutral/20 flex flex-col justify-between gap-2"
-            >
-              <div className="card flex flex-col gap-2">
-                <figure className="relative aspect-square w-full">
-                  {tutor.photo ? (
-                    <Image
-                      src={tutor.photo}
-                      alt={tutor.photo}
-                      fill
-                      className="object-contain rounded-lg"
-                    />
-                  ) : (
-                    <figure className="relative aspect-square w-full">
-                      <Image
-                        src={
-                          "https://images.unsplash.com/photo-1629425733761-caae3b5f2e50"
-                        }
-                        alt="default_image"
-                        fill
-                        className="object-cover rounded-lg"
-                      />
-                    </figure>
-                  )}
-                </figure>
-                <div className="flex items-center justify-between">
-                  <div className="flex flex-col">
-                    <h1 className="text-lg font-semibold inline-block uppercase">
-                      {tutor.tutorName}
-                    </h1>
-                    <div className="uppercase text-neutral text-sm">
-                      {tutor.subject}
+    <div className="container mx-auto my-10">
+      <h1 className="text-2xl font-bold mb-4">My Tutors</h1>
+
+      <div className="overflow-x-auto rounded-box border border-base-content/20 bg-base-200">
+        {tutors.length === 0 ? (
+          <p className=" flex items-center justify-center p-4 text-center min-h-50">
+            No tutors found.
+          </p>
+        ) : (
+          <table className="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Tutor Name</th>
+                <th>Subject</th>
+                <th className="flex items-center justify-end">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tutors.map((tutor, index) => (
+                <tr key={tutor?._id}>
+                  <th>{index + 1}</th>
+                  <td className="font-semibold flex items-center gap-3">
+                    <div>
+                      {tutor?.photo ? (
+                        <figure className="relative w-10 h-10">
+                          <Image
+                            src={tutor?.photo}
+                            alt="profile_image"
+                            fill
+                            className="rounded-full"
+                          />
+                        </figure>
+                      ) : (
+                        <figure className="rounded-full border p-1">
+                          <User />
+                        </figure>
+                      )}
                     </div>
-                  </div>
-                  <div className="flex flex-col text-end justify-end items-end">
-                    <p className="text-sm">Fee</p>
-                    <span className="text-xl text-primary">
-                      ${tutor.hourlyFee}/hr
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-xs">{tutor.institution.name}</p>
-              <div className="space-y-1">
-                <div>
-                  <Link
-                    href={`/tutor/${tutor._id}`}
-                    className="btn btn-primary btn-block"
-                  >
-                    Book a Session
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p className=" container mx-auto  my-10 bg-base-200 rounded-lg flex items-center justify-center p-4 border border-neutral/50 text-center min-h-50">
-          No booked sessions found.
-        </p>
-      )}
-    </>
+                    <div>
+                      <p>{tutor?.tutorName}</p>
+                      <p className="text-xs font-extralight">
+                        {tutor?.institution?.name}
+                      </p>
+                    </div>
+                  </td>
+
+                  <td className="font-semibold">
+                    <p className="badge badge-secondary">{tutor?.subject}</p>
+                  </td>
+
+                  <td>
+                    <TutorActionButtons tutor={tutor} token={token} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </div>
   );
 };
 
