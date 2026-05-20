@@ -18,8 +18,6 @@ const TutorActionButtons = ({ tutor, token }) => {
     "ICT",
   ];
 
-  console.log(tutor);
-
   const {
     register,
     handleSubmit,
@@ -61,7 +59,6 @@ const TutorActionButtons = ({ tutor, token }) => {
     );
 
     const data = await res.json();
-    console.log(data);
     if (data.acknowledged) {
       toast.success("Tutor Deleted");
       router.refresh();

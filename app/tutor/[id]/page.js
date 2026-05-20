@@ -51,7 +51,6 @@ const TutorDetailPage = async ({ params }) => {
     },
   );
   const tutor = await res.json();
-  console.log(tutor);
   return (
     <div className="bg-base-200">
       <div className="container mx-auto py-5 px-2">

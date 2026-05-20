@@ -1,5 +1,6 @@
 "use client";
 import { signIn, useSession } from "@/lib/auth-client";
+import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { EyeOff } from "lucide-react";
 import { Eye } from "lucide-react";
 import Image from "next/image";
@@ -14,20 +15,22 @@ const LoginForm = ({ searchParams }) => {
   const callbackUrl = params["callbackUrl"] || "/";
   const [passVis, setPassVis] = useState(false);
   const { register, handleSubmit } = useForm();
-  const onSubmit = (formData) => {
+  const onSubmit = async (formData) => {
     const { email, password } = formData;
-    const { data, error } = signIn.email({
+    const { data, error } = await signIn.email({
       email: email,
       password: password,
       callbackURL: callbackUrl,
     });
+
+    console.log(error);
     if (error) {
       toast.error(error.message);
     }
   };
 
   const handleGoogleLogin = async () => {
-    const { data, error } = await signIn.social({
+    const { error } = await signIn.social({
       provider: "google",
       callbackURL: callbackUrl,
     });

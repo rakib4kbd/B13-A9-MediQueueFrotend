@@ -12,7 +12,6 @@ import toast from "react-hot-toast";
 const RegisterForm = ({ searchParams }) => {
   const params = searchParams;
   const callbackUrl = params["callbackUrl"] || "/login";
-
   const [passVis, setPassVis] = useState(false);
   const {
     register,
@@ -22,6 +21,13 @@ const RegisterForm = ({ searchParams }) => {
   const router = useRouter();
   const onSubmit = async (formData) => {
     const { name, email, photoUrl, password } = formData;
+    const emailCheck = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/check-email/${email}`,
+    );
+    if (emailCheck.ok) {
+      toast.error("User Exists");
+      return;
+    }
     const { data, error } = await signUp.email({
       name: name,
       email: email,
@@ -29,6 +35,7 @@ const RegisterForm = ({ searchParams }) => {
       image: photoUrl,
       callbackURL: callbackUrl,
     });
+
     if (error) {
       toast.error(error.message);
     }
