@@ -81,7 +81,7 @@ const AddTutorForm = ({ token }) => {
           <input
             type="text"
             className="input w-full"
-            placeholder="Enter tutor name"
+            placeholder="Sophia Johnson"
             {...register("tutorName", { required: true })}
           />
 
@@ -89,7 +89,7 @@ const AddTutorForm = ({ token }) => {
           <input
             type="text"
             className="input w-full"
-            placeholder="Image URL"
+            placeholder="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80"
             {...register("photo")}
           />
 
@@ -173,7 +173,7 @@ const AddTutorForm = ({ token }) => {
           <input
             type="text"
             className="input w-full"
-            placeholder="Dhaka University"
+            placeholder="Stanford University"
             {...register("institutionName")}
           />
 
@@ -181,7 +181,7 @@ const AddTutorForm = ({ token }) => {
 
           <textarea
             className="textarea w-full"
-            placeholder="3 years teaching experience"
+            placeholder="6 years teaching calculus and algebra"
             {...register("experience")}
           />
 
@@ -192,7 +192,7 @@ const AddTutorForm = ({ token }) => {
               <input
                 type="text"
                 className="input w-full"
-                placeholder="Dhanmondi"
+                placeholder="Downtown"
                 {...register("area")}
               />
             </div>
@@ -203,7 +203,7 @@ const AddTutorForm = ({ token }) => {
               <input
                 type="text"
                 className="input w-full"
-                placeholder="Dhaka"
+                placeholder="San Francisco"
                 {...register("city")}
               />
             </div>

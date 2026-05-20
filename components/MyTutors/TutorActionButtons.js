@@ -3,11 +3,12 @@
 import { Trash2 } from "lucide-react";
 import { Pen } from "lucide-react";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 const TutorActionButtons = ({ tutor, token }) => {
+  const [loading, setLoading] = useState(false);
   const subjects = [
     "Mathematics",
     "Physics",
@@ -48,6 +49,7 @@ const TutorActionButtons = ({ tutor, token }) => {
 
   const router = useRouter();
   const handleDelete = async () => {
+    setLoading(true);
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/tutor/${tutor._id}`,
       {
@@ -67,9 +69,12 @@ const TutorActionButtons = ({ tutor, token }) => {
       toast.error(data.error);
       router.refresh();
     }
+    setLoading(false);
   };
 
   const onEdit = async (data) => {
+    setLoading(true);
+
     const tutorData = {
       tutorName: data.tutorName,
       photo: data.photo,
@@ -120,6 +125,7 @@ const TutorActionButtons = ({ tutor, token }) => {
       toast.error(result.error || "Failed to update tutor");
       document.getElementById(`tutorEdit${tutor._id}`).close();
     }
+    setLoading(false);
   };
 
   return (
@@ -155,12 +161,15 @@ const TutorActionButtons = ({ tutor, token }) => {
 
                 <button
                   onClick={handleDelete}
-                  className="btn btn-outline btn-error"
+                  className="btn btn-outline btn-error w-25"
                 >
-                  Confirm
+                  {loading ? (
+                    <div className="loading loading-sm loading-spinner"></div>
+                  ) : (
+                    "Confirm"
+                  )}
                 </button>
               </div>
-              {/* if there is a button in form, it will close the modal */}
             </form>
           </div>
         </div>

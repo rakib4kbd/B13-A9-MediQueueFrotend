@@ -1,0 +1,442 @@
+[
+  {
+    "tutorName": "Sophia Johnson",
+    "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80",
+    "subject": "Mathematics",
+    "hourlyFee": 65,
+    "totalSlot": 80,
+    "sessionStartDate": "2026-06-01",
+    "institution": {
+      "name": "Stanford University",
+      "experience": "6 years teaching calculus and algebra"
+    },
+    "location": {
+      "area": "Downtown",
+      "city": "San Francisco",
+      "teachingMode": "Online"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c541",
+      "email": "admin1@tutorshub.com",
+      "name": "Admin User"
+    }
+  },
+  {
+    "tutorName": "Michael Brown",
+    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=80",
+    "subject": "Physics",
+    "hourlyFee": 70,
+    "totalSlot": 60,
+    "sessionStartDate": "2026-06-03",
+    "institution": {
+      "name": "MIT",
+      "experience": "8 years teaching mechanics and quantum physics"
+    },
+    "location": {
+      "area": "Cambridge",
+      "city": "Boston",
+      "teachingMode": "Offline"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c542",
+      "email": "admin2@tutorshub.com",
+      "name": "Sarah Admin"
+    }
+  },
+  {
+    "tutorName": "Emily Davis",
+    "photo": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=80",
+    "subject": "Chemistry",
+    "hourlyFee": 55,
+    "totalSlot": 90,
+    "sessionStartDate": "2026-06-05",
+    "institution": {
+      "name": "Harvard University",
+      "experience": "5 years teaching organic chemistry"
+    },
+    "location": {
+      "area": "Brookline",
+      "city": "Boston",
+      "teachingMode": "Online"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c543",
+      "email": "admin3@tutorshub.com",
+      "name": "David Admin"
+    }
+  },
+  {
+    "tutorName": "Daniel Wilson",
+    "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&q=80",
+    "subject": "Biology",
+    "hourlyFee": 50,
+    "totalSlot": 75,
+    "sessionStartDate": "2026-06-07",
+    "institution": {
+      "name": "University of Chicago",
+      "experience": "4 years teaching genetics and microbiology"
+    },
+    "location": {
+      "area": "Hyde Park",
+      "city": "Chicago",
+      "teachingMode": "Hybrid"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c544",
+      "email": "admin4@tutorshub.com",
+      "name": "Lisa Admin"
+    }
+  },
+  {
+    "tutorName": "Olivia Martinez",
+    "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=80",
+    "subject": "English",
+    "hourlyFee": 45,
+    "totalSlot": 100,
+    "sessionStartDate": "2026-06-09",
+    "institution": {
+      "name": "Yale University",
+      "experience": "7 years teaching literature and writing"
+    },
+    "location": {
+      "area": "New Haven",
+      "city": "Connecticut",
+      "teachingMode": "Online"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c545",
+      "email": "admin5@tutorshub.com",
+      "name": "Kevin Admin"
+    }
+  },
+  {
+    "tutorName": "James Anderson",
+    "photo": "https://images.unsplash.com/photo-1504593811423-6dd665756598?w=500&q=80",
+    "subject": "Computer Science",
+    "hourlyFee": 85,
+    "totalSlot": 50,
+    "sessionStartDate": "2026-06-11",
+    "institution": {
+      "name": "Carnegie Mellon University",
+      "experience": "10 years teaching programming and AI"
+    },
+    "location": {
+      "area": "Oakland",
+      "city": "Pittsburgh",
+      "teachingMode": "Offline"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c546",
+      "email": "admin6@tutorshub.com",
+      "name": "Anna Admin"
+    }
+  },
+  {
+    "tutorName": "Ava Thompson",
+    "photo": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=500&q=80",
+    "subject": "History",
+    "hourlyFee": 40,
+    "totalSlot": 120,
+    "sessionStartDate": "2026-06-13",
+    "institution": {
+      "name": "Princeton University",
+      "experience": "5 years teaching world history"
+    },
+    "location": {
+      "area": "Downtown",
+      "city": "Princeton",
+      "teachingMode": "Online"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c547",
+      "email": "admin7@tutorshub.com",
+      "name": "Tom Admin"
+    }
+  },
+  {
+    "tutorName": "William Harris",
+    "photo": "https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=500&q=80",
+    "subject": "Economics",
+    "hourlyFee": 75,
+    "totalSlot": 65,
+    "sessionStartDate": "2026-06-15",
+    "institution": {
+      "name": "Columbia University",
+      "experience": "9 years teaching macroeconomics"
+    },
+    "location": {
+      "area": "Manhattan",
+      "city": "New York",
+      "teachingMode": "Hybrid"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c548",
+      "email": "admin8@tutorshub.com",
+      "name": "Rachel Admin"
+    }
+  },
+  {
+    "tutorName": "Mia Clark",
+    "photo": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&q=80",
+    "subject": "Statistics",
+    "hourlyFee": 60,
+    "totalSlot": 85,
+    "sessionStartDate": "2026-06-17",
+    "institution": {
+      "name": "UC Berkeley",
+      "experience": "6 years teaching probability and statistics"
+    },
+    "location": {
+      "area": "Berkeley Hills",
+      "city": "Berkeley",
+      "teachingMode": "Online"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c549",
+      "email": "admin9@tutorshub.com",
+      "name": "Nina Admin"
+    }
+  },
+  {
+    "tutorName": "Benjamin Lewis",
+    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80",
+    "subject": "Geography",
+    "hourlyFee": 42,
+    "totalSlot": 70,
+    "sessionStartDate": "2026-06-19",
+    "institution": {
+      "name": "University of Washington",
+      "experience": "4 years teaching physical geography"
+    },
+    "location": {
+      "area": "Capitol Hill",
+      "city": "Seattle",
+      "teachingMode": "Offline"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c550",
+      "email": "admin10@tutorshub.com",
+      "name": "Chris Admin"
+    }
+  },
+  {
+    "tutorName": "Charlotte Walker",
+    "photo": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&q=80",
+    "subject": "Psychology",
+    "hourlyFee": 68,
+    "totalSlot": 95,
+    "sessionStartDate": "2026-06-21",
+    "institution": {
+      "name": "UCLA",
+      "experience": "7 years teaching behavioral psychology"
+    },
+    "location": {
+      "area": "Westwood",
+      "city": "Los Angeles",
+      "teachingMode": "Hybrid"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c551",
+      "email": "admin11@tutorshub.com",
+      "name": "Sophia Admin"
+    }
+  },
+  {
+    "tutorName": "Ethan Hall",
+    "photo": "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=500&q=80",
+    "subject": "Data Science",
+    "hourlyFee": 95,
+    "totalSlot": 45,
+    "sessionStartDate": "2026-06-23",
+    "institution": {
+      "name": "Georgia Tech",
+      "experience": "8 years teaching machine learning"
+    },
+    "location": {
+      "area": "Midtown",
+      "city": "Atlanta",
+      "teachingMode": "Online"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c552",
+      "email": "admin12@tutorshub.com",
+      "name": "Mark Admin"
+    }
+  },
+  {
+    "tutorName": "Isabella Young",
+    "photo": "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=500&q=80",
+    "subject": "Philosophy",
+    "hourlyFee": 52,
+    "totalSlot": 110,
+    "sessionStartDate": "2026-06-25",
+    "institution": {
+      "name": "Oxford University",
+      "experience": "5 years teaching ethics and logic"
+    },
+    "location": {
+      "area": "Central",
+      "city": "Oxford",
+      "teachingMode": "Offline"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c553",
+      "email": "admin13@tutorshub.com",
+      "name": "Emma Admin"
+    }
+  },
+  {
+    "tutorName": "Lucas King",
+    "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&q=80",
+    "subject": "Accounting",
+    "hourlyFee": 58,
+    "totalSlot": 78,
+    "sessionStartDate": "2026-06-27",
+    "institution": {
+      "name": "University of Texas",
+      "experience": "6 years teaching financial accounting"
+    },
+    "location": {
+      "area": "Downtown",
+      "city": "Austin",
+      "teachingMode": "Hybrid"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c554",
+      "email": "admin14@tutorshub.com",
+      "name": "Noah Admin"
+    }
+  },
+  {
+    "tutorName": "Amelia Scott",
+    "photo": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&q=80",
+    "subject": "Political Science",
+    "hourlyFee": 66,
+    "totalSlot": 82,
+    "sessionStartDate": "2026-06-29",
+    "institution": {
+      "name": "Duke University",
+      "experience": "7 years teaching international relations"
+    },
+    "location": {
+      "area": "Trinity Park",
+      "city": "Durham",
+      "teachingMode": "Online"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c555",
+      "email": "admin15@tutorshub.com",
+      "name": "Grace Admin"
+    }
+  },
+  {
+    "tutorName": "Henry Adams",
+    "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80",
+    "subject": "Business Studies",
+    "hourlyFee": 72,
+    "totalSlot": 68,
+    "sessionStartDate": "2026-07-01",
+    "institution": {
+      "name": "Wharton School",
+      "experience": "9 years teaching business management"
+    },
+    "location": {
+      "area": "University City",
+      "city": "Philadelphia",
+      "teachingMode": "Offline"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c556",
+      "email": "admin16@tutorshub.com",
+      "name": "Ethan Admin"
+    }
+  },
+  {
+    "tutorName": "Harper Green",
+    "photo": "https://images.unsplash.com/photo-1542204625-de293a2f8ff0?w=500&q=80",
+    "subject": "Sociology",
+    "hourlyFee": 48,
+    "totalSlot": 88,
+    "sessionStartDate": "2026-07-03",
+    "institution": {
+      "name": "NYU",
+      "experience": "4 years teaching urban sociology"
+    },
+    "location": {
+      "area": "Brooklyn",
+      "city": "New York",
+      "teachingMode": "Hybrid"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c557",
+      "email": "admin17@tutorshub.com",
+      "name": "Olivia Admin"
+    }
+  },
+  {
+    "tutorName": "Alexander White",
+    "photo": "https://images.unsplash.com/photo-1502767089025-6572583495b0?w=500&q=80",
+    "subject": "Engineering",
+    "hourlyFee": 88,
+    "totalSlot": 55,
+    "sessionStartDate": "2026-07-05",
+    "institution": {
+      "name": "Caltech",
+      "experience": "11 years teaching electrical engineering"
+    },
+    "location": {
+      "area": "Pasadena",
+      "city": "Los Angeles",
+      "teachingMode": "Offline"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c558",
+      "email": "admin18@tutorshub.com",
+      "name": "Mason Admin"
+    }
+  },
+  {
+    "tutorName": "Ella Robinson",
+    "photo": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=500&q=80",
+    "subject": "Art History",
+    "hourlyFee": 46,
+    "totalSlot": 92,
+    "sessionStartDate": "2026-07-07",
+    "institution": {
+      "name": "University of Edinburgh",
+      "experience": "5 years teaching renaissance art"
+    },
+    "location": {
+      "area": "Old Town",
+      "city": "Edinburgh",
+      "teachingMode": "Online"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c559",
+      "email": "admin19@tutorshub.com",
+      "name": "Lily Admin"
+    }
+  },
+  {
+    "tutorName": "Jack Turner",
+    "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&q=80",
+    "subject": "Cyber Security",
+    "hourlyFee": 98,
+    "totalSlot": 40,
+    "sessionStartDate": "2026-07-09",
+    "institution": {
+      "name": "ETH Zurich",
+      "experience": "10 years teaching ethical hacking and security"
+    },
+    "location": {
+      "area": "Central",
+      "city": "Zurich",
+      "teachingMode": "Hybrid"
+    },
+    "addedBy": {
+      "userId": "6a0b63c2eeb656cdbfd2c560",
+      "email": "admin20@tutorshub.com",
+      "name": "Jacob Admin"
+    }
+  }
+]

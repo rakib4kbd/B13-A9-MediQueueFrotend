@@ -36,7 +36,7 @@ const TutorsPage = () => {
                       src={tutor.photo}
                       alt={tutor.photo}
                       fill
-                      className="object-contain rounded-lg"
+                      className="object-cover rounded-lg"
                     />
                   ) : (
                     <figure className="relative aspect-square w-full">
